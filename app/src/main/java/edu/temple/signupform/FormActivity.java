@@ -28,8 +28,19 @@ public class FormActivity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(name.getText().toString()))
-                    Toast.makeText(FormActivity.this, "TEST AGAIN", Toast.LENGTH_LONG).show();
+                if(TextUtils.isEmpty(name.getText().toString()))
+                    Toast.makeText(FormActivity.this, "Please fill in all information.", Toast.LENGTH_LONG).show();
+                else if(TextUtils.isEmpty(email.getText().toString()))
+                    Toast.makeText(FormActivity.this, "Please fill in all information.", Toast.LENGTH_LONG).show();
+                else if(TextUtils.isEmpty(password.getText().toString()))
+                    Toast.makeText(FormActivity.this, "Please fill in all information.", Toast.LENGTH_LONG).show();
+                else if (TextUtils.isEmpty(confirm.getText().toString()))
+                    Toast.makeText(FormActivity.this, "Please fill in all information.", Toast.LENGTH_LONG).show();
+                else if(!TextUtils.equals(password.getText().toString(), confirm.getText().toString()))
+                    Toast.makeText(FormActivity.this, "Password does not match, please try again.", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(FormActivity.this,"Welcome, "+ name.getText().toString() + ", to the SignUpForm App", Toast.LENGTH_LONG).show();
+
             }
         });
 
